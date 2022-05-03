@@ -1,0 +1,27 @@
+ 
+ <div class ="newform">
+    <%= form_with model: @user do |f| %>
+      <table>
+       <h3>新しいアカウントを作成</h3>
+
+        <tr>
+          <td ><%= f.text_field :name, placeholder: "ユーザー名" %></td>
+        </tr>
+        <tr>
+          <td ><%= f.text_field :email, placeholder: "メールアドレス" %></td>
+        </tr>
+        <tr>
+          <td ><%= f.text_field :password, placeholder: "パスワード" %></td>
+        </tr>
+ 
+      </table>
+ 
+      <div>
+        <ul>
+          <li><%= f.submit "新しいアカウントを作成"% class="btn btn-primary ></li>
+          <li><%= link_to "すでにアカウントをお持ちの方はログイン", :users %></li>
+        </ul>
+      </div>
+    <% end %>
+</div>
+
