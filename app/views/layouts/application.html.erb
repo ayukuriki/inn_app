@@ -11,6 +11,41 @@
   </head>
 
   <body>
+  <header>
+   <img src="/assets/logo.png" alt="サイトのロゴ画像">
+
+   <% if current_user? %>
+    <div class ="login">
+      <span><%= current_user.name %><span>
+      <span>メニュー</span>
+        <nav>
+          <ul>
+            <li><%= link_to "ルーム登録"  %></li>
+            <li><%= link_to "予約済みルーム一覧"  %></li>
+            <li><%= link_to "登録済みルーム一覧"  %></li>
+            <li><%= link_to "設定", user_path  %></li>
+            <li><%= link_to "ログアウト" logout_path, method: :delete %></li>
+          </ul>
+        </nav>
+    </div>
+
+
+   <% else %>
+      <div class ="unlogin">
+        <div class ="btn btn-primary"><%= link_to "ログイン" login_path %></div>
+        <div class="btn btn-secondary"><%= link_to "登録する", new_user_path %></div>
+      </div>
+   <% end %>
+   
+  </header>
+
+   <%= notice %>
+   <%= alert %>
+
     <%= yield %>
+  
+    <footer>
+    <p>© 2020 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

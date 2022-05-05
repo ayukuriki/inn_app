@@ -1,0 +1,20 @@
+
+<%= form_with , login_path, local: true do |f| %>
+ <div class= "form-card">
+    <table>
+     <h3>ログイン</h3>
+            <tr>
+            <td ><%= f.text_field :name, placeholder: "ユーザー名" %></td>
+            </tr>
+            <tr>
+            <td ><%= f.text_field :email, placeholder: "メールアドレス" %></zwtd>
+            </tr>
+     </table>
+            <div>
+                <ul>
+                <li><%= f.submit "ログイン"  %></li>
+                <li><%= link_to "新しいアカウントを作成", new_user_path, class:"userList"%></li>
+                </ul>
+            </div>
+  </div>
+<% end %>
