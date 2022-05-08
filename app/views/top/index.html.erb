@@ -6,10 +6,10 @@
         <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
         <p>エリア</p>
 
-        <%= form_with model: @user do |f| %>
+        <%= form_with model: @room  do |f| %>
             <ul>  
-                <li><%= f.text_field :city, placeholder: "東京" %></li>
-                <li><%= link_to "探す", class: 'btn btn-primary' %></li>
+                <li><%= f.text_field :area,placeholder: "東京" %></li>
+                <li><%= link_to "探す" ,class: 'btn btn-primary' %></li>
             </ul>
         <% end %>
         </div>
@@ -19,18 +19,22 @@
     <h2>おすすめのエリア</h2>
     <div class ="area-container">
         <div class ="area">
+        <%= link_to "", rooms_path(area: '東京') %>
         <p class="area-label">東京</p>
         </div>
 
         <div class ="area">
+        <%= link_to "", rooms_path(area: '大阪') %>
         <p class="area-label">大阪</p>
         </div>
 
         <div class ="area">
+        <%= link_to "", rooms_path(area: '京都') %>
         <p class="area-label">京都</p>
         </div>
-        
+
         <div class ="area">
+        <%= link_to "", rooms_path(area: '札幌') %>
         <p class="area-label">札幌</p>
         </div>
 

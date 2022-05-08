@@ -13,26 +13,30 @@
   <body>
   <header>
    <img src="/assets/logo.png" alt="サイトのロゴ画像">
+    <%= form_with model: @room, url:rooms_path, :method => 'get' do |f| %>
+      <%= text_field_tag :area, params[:area] ,placeholder: "エリア" %>
+      <%= text_field_tag :keyword, params[:keyword], placeholder: "エリア" %>
+    <% end %>
 
-   <% if current_user? %>
+
+
+   <% if current_user= nil %>
     <div class ="login">
       <span><%= current_user.name %><span>
       <span>メニュー</span>
         <nav>
           <ul>
-            <li><%= link_to "ルーム登録"  %></li>
+            <li><%= link_to "ルーム登録" ,new_room_path %></li>
             <li><%= link_to "予約済みルーム一覧"  %></li>
-            <li><%= link_to "登録済みルーム一覧"  %></li>
+            <li><%= link_to "登録済みルーム一覧",room_path   %></li>
             <li><%= link_to "設定", user_path  %></li>
-            <li><%= link_to "ログアウト" logout_path, method: :delete %></li>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
           </ul>
         </nav>
     </div>
-
-
    <% else %>
       <div class ="unlogin">
-        <div class ="btn btn-primary"><%= link_to "ログイン" login_path %></div>
+        <div class ="btn btn-primary"><%= link_to "ログイン" ,login_path %></div>
         <div class="btn btn-secondary"><%= link_to "登録する", new_user_path %></div>
       </div>
    <% end %>

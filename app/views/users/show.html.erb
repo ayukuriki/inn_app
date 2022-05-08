@@ -8,8 +8,25 @@
     
     </div>
     <div class ="acount-container">
-    
+        <table>
+        <h3>アカウント</h3>
+        <thead>
+        <tr>
+            <th>メールアドレス</th>
+            <th>パスワード</th>
+        </tr>
+        </thead>
 
+        <tbody>
+            <tr>
+            <td><%= @user.email %></td>
+            <td><%= @user.password %></td>
+            </tr>
+        </tbody>
+
+        <%= link_to "編集", edit_user_path ,class: "btn btn-primary" %>
+
+        </table>
 
     </div>
 </div>

@@ -15,7 +15,21 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:sesison_id])
   end
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def update
+  @user = User.find(params[:id])
+  if @user.update(params.require(:user).permit( :email, :password))
+    flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
+    redirect_to :user_path
+  else
+    render "edit"
+  end
+end
 
   private
   def user_params
