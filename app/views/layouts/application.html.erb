@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,10 +13,11 @@
 
   <body>
   <header>
-   <img src="/assets/logo.png" alt="サイトのロゴ画像">
-    <%= form_with model: @room, url:rooms_path, :method => 'get' do |f| %>
-      <%= text_field_tag :area, params[:area] ,placeholder: "エリア" %>
-      <%= text_field_tag :keyword, params[:keyword], placeholder: "エリア" %>
+   <%= link_to image_tag("/assets/logo.png"), root_path %>
+   
+    <%= form_with model: @room, url:rooms_path, :method => 'get' do |f| %>    
+      <%= text_field_tag :area, params[:area] ,placeholder: "エリア", id: "header-searchbox", class:"bi bi-geo-alt-fill" %>
+      <%= text_field_tag :keyword, params[:keyword], placeholder: "キーワード", id:"header-searchbox" %>
     <% end %>
 
 
@@ -36,8 +38,8 @@
     </div>
    <% else %>
       <div class ="unlogin">
-        <div class ="btn btn-primary"><%= link_to "ログイン" ,login_path %></div>
-        <div class="btn btn-secondary"><%= link_to "登録する", new_user_path %></div>
+        <%= link_to "ログイン" ,login_path ,class:"btn btn-primary" %>
+        <%= link_to "登録する", new_user_path, class: "btn btn-secondary" %>
       </div>
    <% end %>
    

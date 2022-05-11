@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if session[:user_id]
+      @notice = "#{session[:user_name]}でログインしています。"
+    end
 
   end
 

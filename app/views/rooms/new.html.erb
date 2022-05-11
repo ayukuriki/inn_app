@@ -1,24 +1,51 @@
 
-<%= form_with model: @room do |f| %>
-    <table>
-        <tr>
-          <th><%= f.label :name ,"名前" %></th>
-          <td><%= f.text_field :name %></td>
-        </tr>
- 
-        <tr>
-          <th><%= f.label :email ,"メールアドレス" %></th>
-          <td><%= f.text_field :email %></td>
-        </tr>
- 
-        <tr>
-          <th><%= f.label :age ,"年齢" %></th>
-          <td><%= f.text_field :age %></td>
-        </tr>
- 
-        <tr>
-          <th><%= f.label :introduction ,"一言紹介" %></th>
-          <td><%= f.text_area :introduction %></td>
-        </tr>
-      </table>
-<% end %>
+<div class ="global-container"> 
+    <nav class ="nav-container"> 
+    <span class="nav-content">基本情報</span>
+    </nav>
+    <div class= "room-form-container">
+        <div class= "form-card">
+        <%= form_with model: @room do |f| %>
+            
+            <table>
+            
+            <h2>ルーム情報登録</h2>
+
+                <tr>
+                <th><%= f.label :name ,"ルーム名"%></th>
+                <td><%= f.text_field :name ,class: "room-form" , placeholder: "ルーム名を入力" %></td>
+                </tr>
+
+                <tr>
+                <th><%= f.label :introduction ,"ルーム紹介" %></th>
+                <td><%= f.text_area :introduction ,class: "room-text"  , placeholder: "ルーム説明を入力" %></td>
+                </tr>
+
+        
+                <tr>
+                <th><%= f.label :price ,"料金"  %></th>
+
+                <td><%= f.text_field :price  ,class: "room-form" ,placeholder: "一日あたりの料金を入力" %></td>
+                </tr>
+        
+                <tr>
+                <th><%= f.label :address ,"住所" %></th>
+
+                <td><%= f.text_field :address  ,class: "room-form", placeholder: "住所を入力" %></td>
+                </tr>
+        
+                <tr>
+                <th><%= f.label :image ,"ルーム画像" %></th>
+
+                <td><%= f.file_field :image  ,class: "image-choice" %></td>
+                </tr>
+
+                        
+                </table>
+                <div class ="under-table">
+                <%= f.submit "登録", class: "btn btn-primary"  %>
+                </div>
+        <% end %>
+        </div>
+    </div>
+</div>
