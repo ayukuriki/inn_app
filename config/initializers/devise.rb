@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '47f8598f92a9663d52ad761fe88fee005a8615acde1d863dd29529e5e30c21cf00d5dec471b4f7d5e0472d2d20371a8c43e57920934af4c41f7e12cb7532794d'
+  # config.secret_key = '712fea603521c38849625046e122d0690da1921afdffc3232f62d1f307a803749a5500d98395efc6a1197ea73845ed9d2ee2fce41daf679918a68cf332bdae1b'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '856f415b70a328f2bfe5fe2250e2ed1b3ce8a7ae4cdb5d646f44365761fef0314a6b2472701b680d570f6af2a9df69bccd2d58b102ebc91ee82df5f3b3087a2e'
+  # config.pepper = '3c4b5dfad9f580cf14cf18df7ee2b28fb033f1b39044667a033d1a5c79e63a97832bbe56eadec1f9b5f156150ad94a529d1fd9e76fec44d8762b966343768251'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -266,8 +266,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
-
+  config.sign_out_via = :get
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.

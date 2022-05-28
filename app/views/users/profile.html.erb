@@ -1,0 +1,36 @@
+<div class ="global-container">
+    <nav class ="nav-container">
+    
+    <span><%= link_to "アカウント",account_user_path(current_user.id), class:"nav-content" %></span>
+    <span><%= link_to "プロフィール",profile_user_path(current_user.id), class:"current-content" %></span>
+    </nav>
+
+    <div class ="profile-container">
+    <div class ="profile-card">
+    <%= form_with model: @user, local: true do |f| %>
+      <h3>プロフィール</h3>
+        <table>
+        <tr>
+        <%= image_tag @user.image.url, class: 'userimage'%>
+        </tr>
+
+        <tr>
+        <th><%= f.label :image ,"アイコン画像" %></th>
+        <td ><%= f.file_field :image, class:"input" %></td>
+        </tr>
+
+        <tr>
+        <th><%= f.label :name ,"名前" %></th>
+        <td ><%= f.text_field :name, class:"input" %></td>
+        </tr> 
+
+        <tr>
+        <th><%= f.label :self_introduction ,"自己紹介" %></th>
+        <td ><%= f.text_area :self_introduction, class:"input" %></td>
+        </tr>
+
+        </table>
+        <%=  f.submit "更新", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+</div>

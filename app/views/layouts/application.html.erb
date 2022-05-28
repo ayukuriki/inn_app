@@ -9,37 +9,54 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
   <header>
    <%= link_to image_tag("/assets/logo.png"), root_path %>
+
    
-    <%= form_with model: @room, url:rooms_path, :method => 'get' do |f| %>    
+    <%= form_with model: @room, url:rooms_path(area:params[:area]), local: true, :method => 'get' do |f| %>    
       <%= text_field_tag :area, params[:area] ,placeholder: "エリア", id: "header-searchbox", class:"bi bi-geo-alt-fill" %>
+      <% f.submit %>
+    <% end %>
+
+    <%= form_with model: @room, url:rooms_path(area:params[:keyword]),local: true, :method => 'get' do |f| %>   
       <%= text_field_tag :keyword, params[:keyword], placeholder: "キーワード", id:"header-searchbox" %>
+      <% f.submit %>
     <% end %>
 
 
 
-   <% if current_user= nil %>
+
+   <% if user_signed_in? %>
     <div class ="login">
-      <span><%= current_user.name %><span>
-      <span>メニュー</span>
-        <nav>
-          <ul>
-            <li><%= link_to "ルーム登録" ,new_room_path %></li>
-            <li><%= link_to "予約済みルーム一覧"  %></li>
-            <li><%= link_to "登録済みルーム一覧",room_path   %></li>
-            <li><%= link_to "設定", user_path  %></li>
-            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-          </ul>
-        </nav>
+      <ul>
+        <li><%= current_user.name %></li>
+
+        <a class="li" href="メニュー" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+        <%= image_tag current_user.image.thumb.url, class: 'image-menu'%></a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "ルーム登録" ,new_room_path, class:"dropdown-item" %>
+        <%= link_to "予約済みルーム一覧", bookings_path, class:"dropdown-item"  %>
+        <%= link_to "登録済みルーム一覧",posts_room_path(current_user.id) , class:"dropdown-item" %>
+        <%= link_to "設定", account_user_path(current_user.id) ,class:"dropdown-item" %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class:"dropdown-item" %>
+        </div><!-- /.dropdown-menu -->
+      </div><!-- /.dropdown -->
+
+      </ul>
     </div>
+    
    <% else %>
       <div class ="unlogin">
-        <%= link_to "ログイン" ,login_path ,class:"btn btn-primary" %>
-        <%= link_to "登録する", new_user_path, class: "btn btn-secondary" %>
+        <%= link_to "ログイン" ,new_user_session_path ,class:"btn btn-primary" %>
+        <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
       </div>
    <% end %>
    
@@ -48,10 +65,11 @@
    <%= notice %>
    <%= alert %>
 
-    <%= yield %>
+
+   <%= yield %>
   
-    <footer>
+  <footer>
     <p>© 2020 POTEPAN.INC.</p>
-    </footer>
+  </footer>
   </body>
 </html>

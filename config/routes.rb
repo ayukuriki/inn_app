@@ -1,18 +1,42 @@
 Rails.application.routes.draw do
 
-  get 'bookings/index'
-  get 'sessions/new'
-  devise_for :users
   root 'top#index'
-  get '/login', to: "sessions#new"
-  post '/login', to: "sessions#create"
-  delete '/logout', to: "sessions#destroy"
 
-  post 'booking/confirm' 
-  post 'booking/back' 
-  post 'booking/complete' 
-
-  resource :user
+  devise_for :users
   resources :rooms
   resources:bookings
+
+  resources :bookings do
+    member do
+      post 'confirm'
+    end
+
+    member do
+      post 'complete'
+    end
+  end   
+
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+ resources :users do
+  member do
+    get 'account'
+  end
+
+  member do
+    get 'profile'
+  end
 end
+
+resources :rooms do
+  member do
+    get 'posts'
+  end
+ end
+end
+
+
+

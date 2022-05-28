@@ -1,2 +1,30 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+
+<div class="global-container">
+<div class="booked-container">
+    <h4>予約済みルーム一覧</h4>
+        <table>
+        <thead>
+                <th>ルーム画像</th>
+                <th>ルーム名</th>
+                <th>ルーム紹介</th>
+                <th>合計料金</th>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th>予約確定日時</th>
+        </thead>
+    <% @bookings.each do |booking| %>  
+        <tbody>
+            <tr>
+                 <td><%= image_tag 'default_room.jpg', class:"roomimage" %></td>
+                 <td><%= link_to "#{booking.room_name}", room_path(booking.room_id), class:"roomname"  %></td>
+                 <td><%= booking.room_intro  %></td>
+                 <td><%= "￥#{((booking.price).to_i)*((booking.end_date)-(booking.start_date)).to_i}"  %></td>
+                 <td><%= booking.start_date  %></td>
+                 <td><%= booking.end_date  %></td>
+                 <td><%= booking.created_at  %></td>
+            </tr>
+        </tbody>
+    <% end %>
+    </table>
+</div>
+</div>ç

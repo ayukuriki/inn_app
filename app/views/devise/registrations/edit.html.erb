@@ -1,0 +1,54 @@
+<div class= "edit-container">
+<div class= "form-card">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <table>
+    <h3>アカウント編集</h3>
+    <tr>
+    <th><%= f.label :メールアドレス %></th>
+    </tr>
+    <tr>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ユーザー名" ,class: "searchbox" %></td>
+    </tr>
+
+  <tr>
+  <th><%= f.label :変更後パスワード（変更する場合のみ入力） %></th>
+  </tr>
+  <tr>
+  <td><%= f.password_field :password, autocomplete: "new-password",class: "searchbox" %></td>
+  </tr>
+
+
+  <tr>
+  <th><%= f.label :パスワード確認用（変更する場合のみ入力） %></th>
+  </tr>
+  <tr>
+  <td><%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "searchbox" %></td>
+  </tr>
+
+
+  <tr>
+  <th><%= f.label :現在のパスワード %></th>
+  </tr>
+  <tr>
+  <td><%= f.password_field :current_password, autocomplete: "current-password" ,class: "searchbox" %></td>
+  </tr>
+</table>
+
+<div>
+  <ul>
+    <li><%= f.submit "更新", class: "btn btn-primary"  %></li>
+    <li><%= link_to "戻る",account_user_path(current_user.id), class:"userList"%></li>
+  </ul>
+</div>
+
+<% end %>
+
+
+</div>
+</div>
+
+
+

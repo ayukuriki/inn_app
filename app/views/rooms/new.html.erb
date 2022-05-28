@@ -1,12 +1,12 @@
 
 <div class ="global-container"> 
     <nav class ="nav-container"> 
-    <span class="nav-content">基本情報</span>
+    <span class="current-content">基本情報</span>
     </nav>
+    
     <div class= "room-form-container">
         <div class= "form-card">
         <%= form_with model: @room do |f| %>
-            
             <table>
             
             <h2>ルーム情報登録</h2>
@@ -40,7 +40,6 @@
                 <td><%= f.file_field :image  ,class: "image-choice" %></td>
                 </tr>
 
-                        
                 </table>
                 <div class ="under-table">
                 <%= f.submit "登録", class: "btn btn-primary"  %>

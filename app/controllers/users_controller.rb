@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   end
 
-  def create!
+  def create
     user =User.new(user_params)
     if user.save
       session[:user_id]= user.id
@@ -15,19 +15,36 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+
+  end
+
+  def account
+    @user = User.find(params[:id])
+
+  end
+
+  def profile
+    @user = User.find(params[:id])
+    @image = @user.image
+
   end
 
 
-  
-  def update
+
+def update
   @user = User.find(params[:id])
-  if @user.update(params.require(:user).permit( :email, :password))
-    flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
-    redirect_to :user_path
+  if @user.update(params.require(:user).permit(:name, :email, :password,:image,:self_introduction ))
+    flash[:notine] = "Profile was successfully updated."
+    redirect_to profile_user_path(current_user.id)
+
   else
-    render "edit"
+    flash.now[:danger] = "ユーザーを更新できませんでした"
+    render :profile
   end
 end
+
+
 
   private
   def user_params

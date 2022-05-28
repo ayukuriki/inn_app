@@ -1,0 +1,68 @@
+<div class ="confirm-container">
+    <div class= "form-card">
+    <h3>予約内容確認</h3>
+    
+    <h4><%= "#{@booking_price}/日" %></h4>
+    
+    <table>
+            <tr>
+            <th>開始日</th>
+            </tr>
+            <tr>
+            <td class="fake-input"><%= @booking.start_date %></td>
+            </tr>
+            <tr>
+            <th>終了日</th>
+            </tr>
+            <tr>
+            <td class="fake-input"><%= @booking.end_date %></td>
+            </tr>
+            <tr>
+            <th ><%= "使用日数: #{@booking_days} 日" %></th>
+            </tr>
+            <tr>
+            <th><%= "人数: #{@booking.people}人" %></th>
+            </tr>
+    
+ 
+            <tr>
+            <th>合計金額</th>
+            </tr>
+
+            <tr>
+            <td class="fake-input"><%= @booking_price %></td>
+            </tr>
+            </table>
+
+
+            <p>上記内容でよろしければ『予約を確定』を押してください</p>
+      
+            <div class ="under-table">
+
+                <%= form_with model: @booking, method: :post, url: complete_booking_path do |form| %>
+                    <%= form.hidden_field :start_date %>
+                    <%= form.hidden_field :end_date %>
+                    <%= form.hidden_field :user_id  %>
+                    <%= form.hidden_field :room_id %>
+                    <%= form.hidden_field :people %>
+                    <%= form.hidden_field :price %>
+                    <%= form.hidden_field :room_name %>
+                    <%= form.hidden_field :room_image %>
+                    <%= form.hidden_field :room_intro %>
+                    <%= form.hidden_field :created_at %>
+                    <%= form.hidden_field :updated_at %>
+                    <%= form.submit "予約を確定", class: "btn btn-primary" %>
+                <% end %>
+
+                <%= form_with model: @booking, method: :get, url: room_path(@booking.room_id) do |form| %>
+                    <%= form.hidden_field :start_date %>
+                    <%= form.hidden_field :end_date %>
+                    <%= form.hidden_field :user_id  %>
+                    <%= form.hidden_field :room_id %>
+                    <%= form.hidden_field :people %>
+                    <%= form.submit "ルーム詳細に戻る", class: "btn btn-secondary" %>
+                <% end %>
+        
+            </div>
+    </div>
+</div>

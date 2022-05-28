@@ -6,12 +6,15 @@
         <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
         <p>エリア</p>
 
-        <%= form_with model: @room, url:rooms_path, :method => 'get' do |f| %>    
+        <%= form_with model: @room, url:rooms_path(area:params[:area]), local: true, :method => 'get' do |f| %>    
                 <ul>  
                 <li><%= text_field_tag :area, params[:area] ,placeholder: "東京", class: "searchbox"  %></li>
-                <li><%= link_to "探す" ,class: 'btn btn-primary' %></li>
+                <li><%= f.submit "探す", class: 'btn btn-primary' %></li>
             </ul>
         <% end %>
+
+
+
     </div>
 </div>
 </div>
