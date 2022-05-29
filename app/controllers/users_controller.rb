@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-
   end
 
   def create
@@ -16,18 +15,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def account
     @user = User.find(params[:id])
-
   end
 
   def profile
     @user = User.find(params[:id])
     @image = @user.image
-
   end
 
 

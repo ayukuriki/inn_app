@@ -1,32 +1,28 @@
 <h1>showページです</h1>
 <div class ="show-container">
-    <div class ="nav-container">
+  <div class ="nav-container">
     <ul>
-    <span>アカウント</span>
-    <span>プロフィール</span>
+      <span>アカウント</span>
+      <span>プロフィール</span>
     </ul>
-    
-    </div>
-    <div class ="acount-container">
-        <table>
-        <h3>アカウント</h3>
+  </div>
+  
+  <div class ="acount-container">
+    <table>
+      <h3>アカウント</h3>
         <thead>
-        <tr>
+          <tr>
             <th>メールアドレス</th>
             <th>パスワード</th>
-        </tr>
+          </tr>
         </thead>
-
         <tbody>
-            <tr>
+          <tr>
             <td><%= @user.email %></td>
             <td><%= @user.password %></td>
-            </tr>
+          </tr>
         </tbody>
-
-        <%= link_to "編集", edit_user_path ,class: "btn btn-primary" %>
-
-        </table>
-
-    </div>
+      <%= link_to "編集", edit_user_path ,class: "btn btn-primary" %>
+    </table>
+  </div>
 </div>

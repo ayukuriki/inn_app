@@ -6,12 +6,8 @@ class RoomsController < ApplicationController
     # .where('name LIKE ?' or 'introduction LIKE ?'or 'address LIKE ?', "%#{params[:keyword]}%")
   end
 
-
-
   def new
     @room = Room.new
-
-
   end
 
   def show
@@ -20,9 +16,8 @@ class RoomsController < ApplicationController
 
   end
 
-  
   def create
-    @room = Room.new(params.require(:room).permit(:name, :introduction, :price, :address, :image))
+    @room = Room.new(rooms_params)
     @room.user_id = current_user.id
     if @room.save!
       redirect_to @room
@@ -32,15 +27,17 @@ class RoomsController < ApplicationController
     else
       flash.now[:alert]="registration is failled."
       render"new"
-
     end
 
   end
 
-
   def posts
     @rooms = Room.where(user_id: current_user.id)
-
   end
 
+end
+
+
+def rooms_params
+  params.require(:room).permit(:name, :introduction, :price, :address, :image)
 end
