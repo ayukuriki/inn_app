@@ -1,0 +1,27 @@
+<div class ="global-container">
+  <div class ="booked-container">
+    <table>
+      <h3>登録済みルーム一覧</h3>
+      <thead>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%=image_tag 'default_room.jpg', class:"roomimage"  %></td>
+            <td><%= link_to "#{room.name}", room_path(room.id), class:"roomname"  %></td>
+            <td><%= room.introduction %></td>
+            <td><%= "￥#{room.price.to_i}" %></td>
+            <td><%= room.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

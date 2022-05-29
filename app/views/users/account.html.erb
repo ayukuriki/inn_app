@@ -1,0 +1,26 @@
+<div class ="global-container">
+  <nav class ="nav-container">
+    <span><%= link_to "アカウント",account_user_path(current_user.id), class:"current-content" %></span>
+    <span><%= link_to "プロフィール",profile_user_path(current_user.id), class:"nav-content" %></span>
+  </nav>
+
+  <div class ="acount-container">
+    <div class ="account-card">
+      <table>
+        <tbody>
+          <h4>アカウント</h4>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>パスワード</th>
+            <td> ******* </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "編集", edit_user_registration_path ,class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+

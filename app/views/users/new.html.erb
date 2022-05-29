@@ -1,27 +1,29 @@
- 
- <div class ="newform">
-    <%= form_with model: @user do |f| %>
-      <table>
-       <h3>新しいアカウントを作成</h3>
-
-        <tr>
-          <td ><%= f.text_field :name, placeholder: "ユーザー名" %></td>
-        </tr>
-        <tr>
-          <td ><%= f.text_field :email, placeholder: "メールアドレス" %></td>
-        </tr>
-        <tr>
-          <td ><%= f.text_field :password, placeholder: "パスワード" %></td>
-        </tr>
- 
-      </table>
- 
-      <div>
-        <ul>
-          <li><%= f.submit "新しいアカウントを作成"% class="btn btn-primary ></li>
-          <li><%= link_to "すでにアカウントをお持ちの方はログイン", :users %></li>
-        </ul>
-      </div>
-    <% end %>
+ <div class= "form-container">
+   <div class= "form-card">
+      <%= form_with model: @user, url:user_path, local: true do |f| %>
+        <table>
+          <h3>新しいアカウントを作成</h3>
+          <tr>
+            <td ><%= f.text_field :name, placeholder: "ユーザー名" ,class: "searchbox" %></td>
+          </tr>
+          <tr>
+            <td ><%= f.text_field :email, placeholder: "メールアドレス" , class: "searchbox"%></zwtd>
+          </tr>
+          <tr>
+            <td ><%= f.password_field :password, placeholder: "パスワード" ,class: "searchbox" %></td>
+          </tr>
+          <tr>
+            <td ><%= f.password_field :password_confirmation, placeholder: "パスワード確認"  ,class: "searchbox" %></td>
+          </tr>
+        </table>
+    
+        <div>
+          <ul>
+            <li><%= f.submit "新しいアカウントを作成", class: "btn btn-primary"  %></li>
+            <li><%= link_to "すでにアカウントをお持ちの方はログイン",login_path, class:"userList"%></li>
+          </ul>
+        </div>
+      <% end %>
+  </div>
 </div>
 

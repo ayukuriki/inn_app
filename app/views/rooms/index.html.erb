@@ -1,0 +1,19 @@
+<h3><%= "検索結果: #{@numbers}件" %></h3>
+
+<div class="index-container">
+    <% @rooms.each do |room| %>  
+     <div class="room">
+        <%= link_to room_path(room.id),class:"room-link" do %>
+            <div>
+                <%=image_tag 'default_room.jpg', class:"room-image"  %>
+            </div> 
+            <div class="room-profile">  
+                <div class="room-name"><%= room.name %></div>
+                <div class="room-address"><%= room.address %></div>
+                <div class="room-price">￥<%= room.price.to_i %></div>
+            </div> 
+        <% end %>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,45 @@
+
+<div class ="main-container">
+<div class="container">
+
+    <div class="search-container">
+        <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
+        <p>エリア</p>
+
+        <%= form_with model: @room, url:rooms_path(area:params[:area]), local: true, :method => 'get' do |f| %>    
+                <ul>  
+                <li><%= text_field_tag :area, params[:area] ,placeholder: "東京", class: "searchbox"  %></li>
+                <li><%= f.submit "探す", class: 'btn btn-primary' %></li>
+            </ul>
+        <% end %>
+
+
+
+    </div>
+</div>
+</div>
+
+<div class ="second-container">
+    <h2>おすすめのエリア</h2>
+    <div class ="area-container">
+
+    
+
+
+        <%= link_to rooms_path(area: '東京'), :method => 'get', class:"area" do  %>
+        <p class="area-label">東京</p>
+        <% end %>
+    
+        <%= link_to rooms_path(area: '大阪'), :method => 'get', class:"area"  do  %>
+        <p class="area-label">大阪</p>
+        <% end %>
+   
+        <%= link_to rooms_path(area: '京都'), :method => 'get' , class:"area"  do  %>
+        <p class="area-label">京都</p>
+        <% end %>
+
+        <%= link_to rooms_path(area: '札幌'),:method => 'get', class:"area"  do  %>
+        <p class="area-label">札幌</p>
+        <% end %>
+   </div>
+</div>

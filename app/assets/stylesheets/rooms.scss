@@ -1,0 +1,381 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+footer{
+    width: 100%;
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    height: 200px;
+    padding-top: 90px;
+    background-color: #111;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+
+.global-container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-container{
+    width: 15%;
+    padding: 30px 15px;
+    border-right: solid 2px #dddbdb ;
+}
+.room-form-container{
+    width: 85%;
+}
+
+.nav-content{
+    margin-right: 0;
+    color: #4a90e2;
+    font-size: 17px;
+    margin-right: 0;
+    margin-left: auto;
+    width: 70%;
+    display: block;
+    border-right: solid 3px #4a90e2;
+}
+
+
+
+@media screen and (max-width: 990px){
+    .global-container{
+        display: block;
+    }
+    .nav-container{
+        border-right: none;
+        margin-left: 20px;
+    }
+
+    .room-form-container{
+        width: 100%;
+    }
+    
+    .nav-content{
+        width: 100px;
+        text-align: center;
+        margin: auto;
+        color: #4a90e2;
+        font-size: 17px;
+        display: block;
+        padding-bottom: 5px;
+        border-bottom: solid 3px #4a90e2;
+        border-right: none;
+    }
+
+
+}
+
+.room-form-container{
+    position: relative;
+    padding-top: 36px;
+    height: 1000px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #F6F8F9;
+    & .form-card{
+        width: 90%;
+        text-align: center;
+        padding: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 36px;
+        background-color:white;
+        border-radius: 4px;
+        box-shadow: rgb(160, 159, 159) 0px 1px 3px 0px;
+
+       & table{
+            margin: 0;
+            width: 95%;
+
+            &:nth-child(2){
+            height: 200px;
+            }
+        }
+
+        &h2{
+            padding-left: 0;
+            font-size: 18px;
+        }
+        
+    }
+    th{
+       margin-left: 0px;
+
+    }
+    td{
+        margin-left: 0px;
+    }
+
+    .room-form{
+        width: 100%;
+        height: 40px;
+    }
+    .room-text{
+        width: 100%;
+        // height: 150px;
+    }
+    .under-table{
+        height: 100px;
+        padding-top: 30px;
+
+    }
+
+    tr{
+        max-width: 100%;
+        height: 100px;
+        border-bottom:solid 1px rgb(172, 171, 171);
+
+    }
+
+
+    td::before{
+        content: "";
+        background-color: #fff;
+    }
+    th::after {
+        content: "必須";
+        color: #fff;
+        background-color: #ff0000a8;
+        font-size: 12px;
+        border-radius: 5px;
+        padding: 4px;
+        margin: 0 5px;  
+  
+    }
+}
+.show-container{
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    position: relative;
+    height: 100%;
+
+    & .form-card{
+        width: 100%;
+        padding: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 36px;
+        background-color:white;
+        border-radius: 4px;
+        font-size: 13px;
+        box-shadow: rgb(160, 159, 159) 0px 1px 3px 0px;
+
+       & table{
+            margin: 0;
+            width: 95%;
+
+        }
+
+        &h3{
+            padding-left: 0;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+    }
+    th{
+       margin-left: 0px;
+
+    }
+    td{
+        margin-left: 0px;
+        margin-bottom: 20px;
+        height:50px;
+    }
+
+    .room-form{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+    .room-text{
+        width: 100%;
+        // height: 150px;
+    }
+    .under-table{
+        height: 100px;
+        padding-top: 30px;
+
+    }
+
+    tr{
+        max-width: 100%;
+        border-bottom:none;
+    }
+
+    td::before{
+        content: "";
+        display: none;
+    }
+    th::after {
+        content: "";
+        display: none;
+  
+    }
+}
+
+
+.info-container{
+    margin-left: 10%;
+    width: 60%;
+    position: relative;
+    height: 100%;
+}
+
+.image-container{
+    background-color: #4a90e2;
+    object-fit: cover;
+    height:300px ;
+    margin-right: 30px;
+    
+}
+.room-info-container{
+    margin-top: 20px;
+    padding: 0 15px;  
+    display: flex; 
+    border-bottom: solid 1px rgb(216, 216, 216);
+
+}
+.user-image{
+    margin-top: 10px;
+    border-radius: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 70px;
+    width: 70px;
+
+}
+.room-info{
+    margin: 20px;   
+    font-size: 13px;
+
+}
+.introduction{
+    font-size: 13px;
+    margin-top: 20px;
+    height: 70px;
+    border-bottom: solid 1px rgb(216, 216, 216);
+
+}
+
+.booking-container{
+    margin-right: 8%;
+    width: 30%;
+    position: relative;
+    height: 100%;
+   
+}
+
+
+
+.index-container{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+
+    
+}
+
+.room{
+    border: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+    width: 46%;
+    height: 330px;
+    margin-right: 2.3%;
+    background-color: rgb(247, 247, 247);
+}
+
+.room-link{
+    text-decoration: none;
+    color: #111;
+
+}
+.room-image{
+    margin-top: 10px;
+    background-color: palevioletred;
+    width:100%;
+    height: 180px;
+}
+
+.room-profile{
+    position: relative;
+    margin: 20px 20px;
+}
+.room-name{
+    color: gray;
+    font-size: 20px;
+}
+.room-address{
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #111;
+
+}
+.room-price{
+    margin-top: 10px;
+    position: absolute;
+    font-size: 16px;
+    right: 0;
+    color: #111;
+}
+
+
+@media screen and (min-width: 990px){
+    .room{
+        order: 1px solid #f7f7f7;
+        margin-bottom: 10px;
+        width: 31%;
+        height: 330px;
+        margin-right: 2%;
+    }
+}
+@media screen and (min-width: 1200px){
+    .room{
+        order: 1px solid #e2e2e2;
+        margin-bottom: 10px;
+        width: 23%;
+        height: 330px;
+        margin-right: 2%;
+    }
+}
+
+
+.registered-container{
+    width: 100%;
+    margin: 30px 50px;
+
+    table{
+        width: 100%;
+    }
+
+    thead{
+        background-color: pink;
+        width: 100%;
+        justify-content:space-between;
+        font-size: 13px;
+    }
+    tr{
+        border-top: #e2e2e2;
+    }
+
+
+}
+
+.link{
+    text-decoration: none;
+    color:black;
+
+}

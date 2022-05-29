@@ -1,0 +1,34 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.form-container{
+    position: relative;
+    padding-top: 36px;
+    height: 600px;
+    font-size: 16px;
+    text-align: center;
+    & .form-card{
+        max-width: 600px;
+        text-align: center;
+        padding: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 36px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: rgb(160, 159, 159) 0px 1px 3px 0px;
+      & td{
+        margin-bottom: 10px;      
+       }
+    }
+}
+
+td::before {
+    content: "必須";
+    
+    margin-right: 15px;
+    border-radius: 10%;
+    background-color: rgb(223, 72, 72);
+    color: aliceblue;    
+}

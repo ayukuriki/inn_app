@@ -10,14 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_001906) do
+ActiveRecord::Schema.define(version: 2022_05_28_122732) do
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+  create_table "bookings", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.integer "length"
+    t.integer "people"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
+    t.string "room_name"
+    t.string "room_image"
+    t.text "room_intro"
+    t.string "image"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.text "introduction"
+    t.float "price"
+    t.string "address"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "password"
+    t.string "password_confirmation"
+    t.string "email"
+    t.string "image"
+    t.text "self_introduction"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
